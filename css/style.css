@@ -1,0 +1,7 @@
+.tarjeta {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    gap: 1rem;
+}

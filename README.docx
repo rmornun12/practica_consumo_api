@@ -1,0 +1,78 @@
+¿Qué tipo de datos ofrece (clima, películas, imágenes, etc.)?
+
+1. Usuarios de la app (App Users)
+Información sobre los usuarios registrados en tu proyecto.
+email, status (activo, pendiente, etc.), metadata (plan, rol, otros datos personalizados)
+Y profile (nombre, avatar, idioma, locale, otros campos JSON)
+
+Endpoints relacionados: /api/app-users/*
+Tipo de dato: usuarios y sus metadatos.
+
+2. Colecciones (Collections)
+Datos personalizados definidos por el proyecto, almacenados en colecciones.
+Endpoints: /api/collections/:slug/records y /app/collections/:slug/records
+Tipo de dato: objetos arbitrarios de tu proyecto, como pedidos, productos, notas, etc.
+
+3. Custom endpoints
+
+Datos definidos por ti o el proyecto, usando /api/custom/<path>
+Tipo de dato: objetos personalizados, similar a colecciones pero con endpoints a medida.
+
+4. Logs
+Información de las solicitudes y respuestas hechas a la API.
+Datos disponibles: method (GET, POST…), path (endpoint llamado) y status (código HTTP).
+Tipo de dato: registros de actividad / auditoría.
+
+5. Automations
+Eventos disparados al cambiar registros en colecciones.
+Tipo de dato: eventos y acciones de automatización.
+
+¿Es necesario obtener una clave de API (API Key) para realizar consultas?
+No estrictamente, pero algunas funcionalidades en otras APIs requieren key.
+Creación/actualización de datos, acceso a endpoints con límites de uso 
+(por ejemplo, más de X consultas por hora)...
+
+¿Cómo se estructura una solicitud a la API? (Método HTTP, parámetros requeridos, URL base).
+La API utilizada sigue una estructura REST y permite realizar solicitudes HTTP para obtener datos en formato JSON.
+- URL base: https://reqres.in/api/
+- Endpoint utilizado: /users
+- Método HTTP: GET
+- Parámetros opcionales: page 
+Indica la página de resultados que se 
+desea obtener.
+- Cabeceras utilizadas:
+o Content-Type: application/json
+o x-api-key (no me dejo hacer la operación sin esta)
+
+Una breve descripción del proyecto.
+Este proyecto consiste en una aplicación web sencilla que 
+consume datos de una API pública utilizando fetch.
+La aplicación obtiene información de usuarios (nombre, 
+apellidos, email y avatar) y los muestra dinámicamente 
+en forma de tarjetas dentro de la página web, sin necesidad 
+de recargarla.
+El objetivo principal es aprender a realizar peticiones 
+asíncronas, procesar respuestas en formato JSON y manipular 
+el DOM para mostrar los datos de manera visual.
+
+La URL de la API utilizada.
+https://reqres.in/api/users
+
+Ejemplo de una consulta (URL de prueba con parámetros).
+https://reqres.in/api/users?page=1
+
+Problemas encontrados y cómo los solucionaste.
+Uno de los principales problemas encontrados fue comprender 
+la estructura del objeto JSON devuelto por la API, 
+ya que los datos de los usuarios se encontraban dentro 
+de la propiedad data (tenía que ver como acceder a esta).
+No ha sido tanto la estructura en sí, sino el tema de los headers
+para la api-key.
+Otro problema fue la creación dinámica de elementos HTML. 
+Se resolvió utilizando funciones auxiliares como 
+crearElem() y organizando el código en funciones 
+reutilizables para mejorar la claridad a la par del mantenimiento 
+del proyecto.
+
+
+
